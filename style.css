@@ -124,3 +124,72 @@ body {
 /* SOUND BUTTON */
 .sound-btn { position: fixed; bottom: 20px; right: 20px; background: #f6019d; color: black; font-weight: bold; padding: 12px 25px; border: none; cursor: pointer; z-index: 999; border-radius: 8px; font-size: 16px; transition: 0.3s; }
 .sound-btn:hover { background: #2de2e6; transform: scale(1.1); }
+/* ------------------------------ */
+/* MOBILE / TABLET RESPONSIVE */
+@media (max-width: 768px) {
+    /* Reduce padding for smaller screens */
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links a {
+        margin: 10px 0;
+    }
+
+    .hero {
+        padding: 60px 20px;
+        min-height: 50vh;
+    }
+    .hero-title {
+        font-size: 60px;
+    }
+    .hero-sub {
+        font-size: 18px;
+    }
+    .hero-desc {
+        font-size: 16px;
+        max-width: 100%;
+        border-left: 3px solid #2de2e6;
+        padding-left: 10px;
+    }
+    .float-icon {
+        width: 80px;
+        right: 20px;
+        top: 10%;
+    }
+
+    .about {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+    .about-card {
+        width: 100%;
+    }
+    .about-image {
+        width: 100%;
+        min-height: 200px;
+    }
+    .skills-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .skill-box {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 60px 20px;
+    }
+    .footer-ghost {
+        width: 200px;
+        top: 10px;
+    }
+    .footer-title {
+        font-size: 40px;
+    }
+    .contact-btn {
+        padding: 20px 40px;
+        font-size: 18px;
+    }
+}
