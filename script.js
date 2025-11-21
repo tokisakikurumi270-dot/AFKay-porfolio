@@ -85,3 +85,22 @@ window.addEventListener('click', (e) => {
         achievementPopup.style.display = 'none';
     }
 });
+// CONTACT POPUP
+const contactPopup = document.getElementById("contact-popup");
+const openContact = document.getElementById("open-contact");
+const closeContact = document.getElementById("close-contact");
+
+openContact.addEventListener("click", () => {
+    contactPopup.classList.add("show");
+});
+
+closeContact.addEventListener("click", () => {
+    contactPopup.classList.remove("show");
+});
+
+// Close on outside click
+window.addEventListener("click", (e) => {
+    if (e.target === contactPopup) {
+        contactPopup.classList.remove("show");
+    }
+});
