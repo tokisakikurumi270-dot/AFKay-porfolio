@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFKay Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SPLASH SCREEN -->
+<div id="splash-screen">
+    <h1>CLICK TO START</h1>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main-content" class="hidden">
+
+    <!-- VIDEO BACKGROUND -->
+    <div class="video-bg">
+        <div class="overlay-dark"></div>
+        <div class="overlay-gradient"></div>
+        <video autoplay loop muted playsinline class="video">
+            <source src="background.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">JINX.SYS</div>
+        <nav class="nav-links">
+            <a href="#about">Who?</a>
+            <a href="#skills">What?</a>
+            <a href="#contact">Where?</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2 class="hero-sub">HELLO, I AM</h2>
+        <h1 class="hero-title glitch" data-text="AFKay">AFKay</h1>
+        <p class="hero-desc">"I don't just play games. I <span>unleash</span> chaos."</p>
+        <button class="cta-btn">SEE MY ACHIEVEMENT</button>
+        <img src="icons/jinx.png" class="float-icon">
+    </section>
+
+    <!-- ABOUT SECTION -->
+<section id="about" class="about">
+    <div class="about-card">
+        <div class="tag">WARNING</div>
+        <h3 class="section-title">The Operator</h3>
+        <p>
+            I'm a casual gamer that <strong>plays</strong> all sorts of
+            <strong>games</strong>, both on and offline. Although I'm not good
+            at it, I <strong>ensure</strong> you that you'll have a great time
+            playing with me.
+        </p>
+        <p>
+            My hobbies include playing video games, reading manga, watching anime and movies.
+        </p>
+        <p>
+            I'm a big Hololive fan — my Oshi is Kaela.
+        </p>
+        <p>
+            Ado is my favorite singer <img src="icons/ado rose.png" alt="Ado Icon" class="inline-icon">
+        </p>
+    </div>
+    <div class="about-image">
+        <img src="profile.jpg" alt="Profile Image" class="about-img">
+        <img src="icons/bomb.png" class="floating-bomb">
+    </div>
+</section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="skills">
+        <h3 class="skills-title">MY <span>ARSENAL</span></h3>
+        <div class="skills-grid">
+            <div class="skill-box">
+                <div class="skill-icon lol">LoL</div>
+                <h4>League of Legends</h4>
+                <p>Rift Domination, Team Strategy</p>
+            </div>
+            <div class="skill-box">
+                <div class="skill-icon valorant">VAL</div>
+                <h4>Valorant</h4>
+                <p>Tactical Shooter, Precision Aim</p>
+            </div>
+            <div class="skill-box">
+                <div class="skill-icon duo">2XKO</div>
+                <h4>2XKO</h4>
+                <p>Fighting Game Mastery</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <footer id="contact" class="footer">
+        <img src="icons/ghost.svg" class="footer-ghost">
+        <h2 class="footer-title">
+            READY TO <span class="glitch" data-text="PANIC?">PANIC?</span>
+        </h2>
+        <p class="footer-sub">Got a crazy idea? Let's build it. Or break it.</p>
+        <a href="mailto:you@example.com" class="contact-btn">GET IN TOUCH</a>
+        <p class="system-status">SYSTEM STATUS: CRITICAL // BUILT WITH CHAOS</p>
+    </footer>
+
+    <!-- CURSOR FOLLOWER -->
+    <div id="cursor-ring"></div>
+    <div id="cursor-dot"></div>
+
+    <!-- AUDIO -->
+    <audio id="bg-audio" loop>
+        <source src="background.mp3" type="audio/mpeg">
+    </audio>
+    <button id="toggle-sound" class="sound-btn">UNMUTE</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
