@@ -64,3 +64,24 @@ soundBtn.addEventListener("click", () => {
         soundBtn.textContent = "UNMUTE";
     }
 });
+// Get elements
+const achievementBtn = document.querySelector('.cta-btn');
+const achievementPopup = document.getElementById('achievement-popup');
+const closeAchievement = document.getElementById('close-achievement');
+
+// Show popup
+achievementBtn.addEventListener('click', () => {
+    achievementPopup.style.display = 'flex';
+});
+
+// Close popup
+closeAchievement.addEventListener('click', () => {
+    achievementPopup.style.display = 'none';
+});
+
+// Close if clicking outside the content
+window.addEventListener('click', (e) => {
+    if (e.target === achievementPopup) {
+        achievementPopup.style.display = 'none';
+    }
+});
