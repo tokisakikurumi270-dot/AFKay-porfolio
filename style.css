@@ -100,20 +100,99 @@ body {
 .duo { background: purple; color: white; }
 
 /* ------------------------------ */
+/* ------------------------------ */
 /* FOOTER / CONTACT */
-.footer { padding: 100px 60px; text-align: center; position: relative; }
-.footer-ghost { width: 400px; opacity: 0.1; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); }
-.footer-title { font-size: 70px; margin-bottom: 20px; }
-.footer-title span.glitch { position: relative; display: inline-block; }
-.footer-title span.glitch::before,
-.footer-title span.glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-.footer-title span.glitch::before { color: #ff00c1; transform: translate(2px,-2px); animation: glitch1 2s infinite; }
-.footer-title span.glitch::after { color: #00fff9; transform: translate(-2px,2px); animation: glitch2 2s infinite; }
+.footer {
+    padding: 100px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* ensure content stays contained */
+}
 
-.footer-sub { max-width: 500px; margin: auto; color: #bbb; font-size: 22px; }
-.contact-btn { margin-top: 40px; display: inline-block; padding: 30px 60px; background: white; color: black; font-size: 22px; font-weight: bold; transition: 0.3s; }
-.contact-btn:hover { background: #f6019d; color: white; transform: scale(1.1) rotate(-2deg); }
-.system-status { margin-top: 60px; font-size: 14px; color: #666; }
+/* Decorative ghost image */
+.footer-ghost {
+    width: 400px;
+    opacity: 0.1;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none; /* allows clicks to pass through */
+    z-index: 0; /* behind all other footer content */
+}
+
+/* Footer title with glitch effect */
+.footer-title {
+    font-size: 70px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1; /* above ghost image */
+}
+
+.footer-title span.glitch {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-title span.glitch::before,
+.footer-title span.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.footer-title span.glitch::before { 
+    color: #ff00c1; 
+    transform: translate(2px,-2px); 
+    animation: glitch1 2s infinite; 
+}
+
+.footer-title span.glitch::after { 
+    color: #00fff9; 
+    transform: translate(-2px,2px); 
+    animation: glitch2 2s infinite; 
+}
+
+.footer-sub {
+    max-width: 500px;
+    margin: auto;
+    color: #bbb;
+    font-size: 22px;
+    position: relative;
+    z-index: 1; /* above ghost image */
+}
+
+/* Contact button */
+.contact-btn {
+    margin-top: 40px;
+    display: inline-block;
+    padding: 30px 60px;
+    background: white;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    transition: 0.3s;
+    position: relative;
+    z-index: 1; /* above ghost image */
+}
+
+.contact-btn:hover { 
+    background: #f6019d; 
+    color: white; 
+    transform: scale(1.1) rotate(-2deg); 
+}
+
+/* System status text */
+.system-status {
+    margin-top: 60px;
+    font-size: 14px;
+    color: #666;
+    position: relative;
+    z-index: 1; /* above ghost image */
+}
 
 /* ------------------------------ */
 /* CURSOR FOLLOWER */
@@ -307,8 +386,9 @@ body {
     width: 350px;
     text-align: center;
     color: #fff;
-    animation: fadeIn 0.3s ease;
     border: 2px solid #ff00ff;
+    position: relative;
+    animation: fadeIn 0.3s ease;
 }
 
 .close-btn {
@@ -318,11 +398,6 @@ body {
     top: 10px;
     right: 20px;
     color: #ff00ff;
-}
-
-.contact-links a {
-    color: #00aaff;
-    text-decoration: underline;
 }
 
 @keyframes fadeIn {
