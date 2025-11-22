@@ -424,3 +424,25 @@ body {
         font-size: 16px;
     }
 }
+/* About section adjustments for mobile */
+.about {
+    flex-direction: column; /* Stack the card and image vertically */
+    gap: 30px;
+}
+
+.about-image {
+    min-height: auto; /* Remove fixed height */
+    width: 100%;
+}
+
+.about-img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+}
+
+.floating-bomb {
+    width: 40px; /* scale down on mobile */
+    top: 10px;
+    right: 10px;
+}
