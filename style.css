@@ -550,3 +550,160 @@ body {
     50% { transform: translateX(-50%) scale(1.05) translateY(-10px); }
     100% { transform: translateX(-50%) scale(1.05) translateY(0); }
 }
+/* ------------------------------ */
+/* MOBILE RESPONSIVENESS */
+
+/* Global styles adjustments for small screens */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Reduce font size for readability on mobile */
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 60px 20px; /* Less padding on smaller screens */
+        text-align: center;
+    }
+    .hero-title {
+        font-size: 60px; /* Adjust title size for mobile */
+    }
+    .hero-desc {
+        max-width: 100%;
+        font-size: 18px; /* Adjust text size for mobile */
+        margin: 20px 0;
+    }
+    .cta-btn {
+        padding: 12px 30px;
+        font-size: 18px;
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    /* Navbar */
+    .navbar {
+        padding: 10px 20px; /* Reduced padding for mobile */
+        flex-direction: column;
+        align-items: center; /* Stack navbar items vertically */
+        text-align: center;
+    }
+    .nav-links a {
+        margin-left: 0; /* Remove left margin */
+        margin-top: 10px; /* Add margin for vertical spacing */
+    }
+    .logo {
+        font-size: 24px; /* Adjust logo size */
+    }
+
+    /* About Section */
+    .about {
+        flex-direction: column;
+        align-items: center; /* Stack the about cards */
+        padding: 40px 20px; /* Adjust padding */
+    }
+    .about-card {
+        width: 100%; /* Full width of the card */
+        margin-bottom: 20px;
+    }
+    .about-image {
+        min-height: 200px; /* Adjust image size */
+    }
+
+    /* Skills Section */
+    .skills-grid {
+        flex-direction: column; /* Stack skill boxes vertically */
+        align-items: center;
+    }
+    .skill-box {
+        width: 100%; /* Full width for mobile */
+        margin-bottom: 20px; /* Space between skill boxes */
+    }
+
+    /* Footer Section */
+    .footer {
+        padding: 50px 20px;
+        text-align: center;
+    }
+    .footer-title {
+        font-size: 40px; /* Adjust footer title size */
+    }
+    .footer-sub {
+        font-size: 18px; /* Adjust text size */
+    }
+
+    /* Modal Adjustments */
+    .modal-content {
+        max-width: 90%; /* Allow the modal content to be more fluid */
+    }
+}
+
+/* Further tweaks for smaller mobile devices (like iPhone SE, etc.) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 50px; /* Smaller font size for very small screens */
+    }
+
+    .cta-btn {
+        font-size: 16px; /* Adjust button font size */
+    }
+
+    .footer-title {
+        font-size: 32px; /* Adjust footer title for smaller screens */
+    }
+
+    .footer-sub {
+        font-size: 16px; /* Reduce font size of footer text */
+    }
+    .contact-btn {
+        padding: 20px 40px;
+        font-size: 18px;
+        width: 100%;
+    }
+
+    /* Splash Screen */
+    #splash-screen h1 {
+        font-size: 40px; /* Adjust splash screen text size */
+    }
+
+    /* Adjust the floating icons and other small UI elements */
+    .float-icon {
+        width: 100px; /* Smaller floating icon */
+        top: 10%;
+    }
+    .sound-btn {
+        bottom: 10px; /* Adjust sound button position */
+        font-size: 14px; /* Smaller font */
+    }
+}
+
+/* ------------------------------ */
+/* OTHER SPECIFIC MOBILE ADJUSTMENTS */
+
+/* Ensure the sound button and modals remain interactive but are responsive */
+.sound-btn {
+    padding: 10px 15px; /* Adjust padding */
+    font-size: 14px;
+}
+
+/* Fix splash screen GIFs for mobile, prevent them from overlapping or becoming too large */
+.splash-gif {
+    width: 150px; /* Smaller splash gifs */
+    height: auto;
+}
+
+/* Ensure modal content fits well on smaller screens */
+.modal-content {
+    padding: 20px;
+    width: 90%; /* Ensure modals use the available width */
+}
+
+/* Make sure the cursor and floating effects scale well on mobile */
+#cursor-ring {
+    width: 20px; 
+    height: 20px; 
+}
+
+#cursor-dot {
+    width: 4px; 
+    height: 4px;
+}
