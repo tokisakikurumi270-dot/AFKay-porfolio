@@ -152,9 +152,105 @@ contactModal.addEventListener("click", (e) => {
         contactModal.classList.remove("show");
     }
 });
-// Make modals scrollable on mobile if content is long
-document.querySelectorAll(".modal, #fullscreen-modal").forEach(modal => {
-    modal.addEventListener("touchstart", e => {
-        e.stopPropagation(); // prevent closing accidentally
-    });
+// Japanese characters effect on splash screen
+const splashText = document.querySelector("#splash-screen h1");
+const finalText = "CLICK TO START";
+const japaneseChars = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+let interval;
+let iteration = 0;
+
+function randomChar() {
+    return japaneseChars[Math.floor(Math.random() * japaneseChars.length)];
+}
+
+function startScramble() {
+    iteration = 0;
+    clearInterval(interval);
+    interval = setInterval(() => {
+        splashText.innerText = finalText
+            .split("")
+            .map((char, index) => {
+                if (index < iteration) return finalText[index];
+                return randomChar();
+            })
+            .join("");
+
+        iteration += 1 / 3; // speed of the reveal
+
+        if (iteration >= finalText.length) {
+            clearInterval(interval);
+            splashText.innerText = finalText; // ensure it ends cleanly
+        }
+    }, 50);
+}
+
+// Start scrambling effect immediately
+startScramble();
+const splashGifsContainer = document.getElementById("splash-gifs");
+
+// Array of 4 GIF paths
+const gifSources = [
+    "icons/flicker1.gif",
+    "icons/flicker2.gif",
+    "icons/flicker3.gif",
+    "icons/flicker4.gif"
+];
+
+function spawnRandomGif() {
+    const gif = document.createElement("img");
+
+    // Random GIF
+    const randomIndex = Math.floor(Math.random() * gifSources.length);
+    gif.src = gifSources[randomIndex];
+    gif.classList.add("splash-gif");
+
+    // Random initial position
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+    gif.style.left = `${x}px`;
+    gif.style.top = `${y}px`;
+
+    // Random size, 50% bigger
+    const size = (20 + Math.random() * 50) * 1.5;
+    gif.style.width = `${size}px`;
+    gif.style.height = `${size}px`;
+
+    splashGifsContainer.appendChild(gif);
+
+    // Smooth fade-in
+    setTimeout(() => {
+        gif.style.opacity = 1;
+        gif.style.transform = "scale(1.2)";
+
+        // Slight random float
+        const moveX = (Math.random() - 0.5) * 100; // -50 to +50 px
+        const moveY = (Math.random() - 0.5) * 100;
+        gif.style.left = `${x + moveX}px`;
+        gif.style.top = `${y + moveY}px`;
+    }, 50);
+
+    // Fade-out after 1–2 seconds
+    const duration = 1000 + Math.random() * 1000;
+    setTimeout(() => {
+        gif.style.opacity = 0;
+        gif.style.transform = "scale(0.8)";
+    }, duration);
+
+    // Remove element after fade-out
+    setTimeout(() => {
+        gif.remove();
+    }, duration + 500);
+}
+
+// Spawn GIFs continuously
+setInterval(spawnRandomGif, 250);
+document.querySelectorAll(".skill-box").forEach(box => {
+    const imgSrc = box.getAttribute("data-main-img");
+    if(imgSrc){
+        const img = document.createElement("img");
+        img.src = imgSrc;
+        img.classList.add("main-hover");
+        box.appendChild(img);
+    }
 });
