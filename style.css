@@ -358,3 +358,69 @@ body {
     color: #f6019d;
     cursor: pointer;
 }
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    /* General modal adjustments */
+    .modal-content {
+        width: 90%;
+        padding: 25px 20px;
+    }
+
+    #contact-modal .modal-content,
+    #achievement-modal .modal-content {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    #contact-modal h2,
+    #achievement-modal h2 {
+        font-size: 28px;
+    }
+
+    .contact-links p,
+    .modal-images img {
+        font-size: 18px;
+    }
+
+    .modal-images {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .modal-images img {
+        width: 70%;
+        max-width: 250px;
+    }
+
+    /* Fullscreen modal adjustments */
+    #fullscreen-modal img {
+        max-width: 95%;
+        max-height: 80%;
+    }
+
+    /* Footer buttons */
+    .contact-btn {
+        padding: 12px 20px;
+        font-size: 18px;
+    }
+
+    /* Hero section */
+    .hero-title {
+        font-size: 60px;
+    }
+
+    .hero-desc {
+        font-size: 18px;
+    }
+
+    .float-icon {
+        width: 80px;
+    }
+
+    /* Navbar links smaller on mobile */
+    .nav-links a {
+        margin-left: 15px;
+        font-size: 16px;
+    }
+}
