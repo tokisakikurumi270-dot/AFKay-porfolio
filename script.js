@@ -152,3 +152,9 @@ contactModal.addEventListener("click", (e) => {
         contactModal.classList.remove("show");
     }
 });
+// Make modals scrollable on mobile if content is long
+document.querySelectorAll(".modal, #fullscreen-modal").forEach(modal => {
+    modal.addEventListener("touchstart", e => {
+        e.stopPropagation(); // prevent closing accidentally
+    });
+});
