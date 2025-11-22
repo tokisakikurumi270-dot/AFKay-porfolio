@@ -424,25 +424,36 @@ body {
         font-size: 16px;
     }
 }
-/* About section adjustments for mobile */
-.about {
-    flex-direction: column; /* Stack the card and image vertically */
-    gap: 30px;
-}
+/* MOBILE OPTIMIZATION FOR ABOUT SECTION */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column; /* stack text and image vertically */
+        gap: 30px;
+        padding: 40px 20px; /* optional: reduce padding for mobile */
+    }
 
-.about-image {
-    min-height: auto; /* Remove fixed height */
-    width: 100%;
-}
+    .about-card {
+        width: 100%;
+        border-left: none; /* optional for cleaner mobile look */
+        border: 2px solid #2de2e6;
+    }
 
-.about-img {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px;
-}
+    .about-image {
+        min-height: auto;  /* remove fixed min-height */
+        width: 100%;
+        border: 2px dashed #f6019d;
+    }
 
-.floating-bomb {
-    width: 40px; /* scale down on mobile */
-    top: 10px;
-    right: 10px;
+    .about-img {
+        width: 100%;
+        height: auto; /* maintain aspect ratio */
+        object-fit: cover; /* keeps the image nicely cropped */
+        border-radius: 8px;
+    }
+
+    .floating-bomb {
+        width: 40px;
+        top: 10px;
+        right: 10px;
+    }
 }
