@@ -1,19 +1,19 @@
 /* ------------------------------ */
-/* SPLASH SCREEN CLICK TO START */
+/* SPLASH SCREEN CLICK */
 /* ------------------------------ */
 const splash = document.getElementById("splash-screen");
 const main = document.getElementById("main-content");
 const audio = document.getElementById("bg-audio");
 
 splash.addEventListener("click", () => {
-    splash.style.display = "none";  // hide splash
-    main.classList.remove("hidden"); // show main content
+    splash.style.display = "none";
+    main.classList.remove("hidden");
     audio.volume = 0.5;
     audio.play().catch(err => console.log("Audio blocked:", err));
 });
 
 /* ------------------------------ */
-/* CURSOR FOLLOW SYSTEM */
+/* CURSOR FOLLOW */
 /* ------------------------------ */
 const ring = document.getElementById("cursor-ring");
 const dot = document.getElementById("cursor-dot");
@@ -24,23 +24,21 @@ window.addEventListener("mousemove", (e) => {
 });
 
 /* ------------------------------ */
-/* BUTTON HOVER COLOR CHANGE */
+/* BUTTON HOVER */
 /* ------------------------------ */
 document.querySelectorAll("button, a").forEach((el) => {
-    el.addEventListener("mouseenter", () => {
-        ring.style.borderColor = "#f6019d";
-    });
-    el.addEventListener("mouseleave", () => {
-        ring.style.borderColor = "#2de2e6";
-    });
+    el.addEventListener("mouseenter", () => ring.style.borderColor = "#f6019d");
+    el.addEventListener("mouseleave", () => ring.style.borderColor = "#2de2e6");
 });
 
 /* ------------------------------ */
 /* SCROLL REVEAL */
 /* ------------------------------ */
 const revealItems = document.querySelectorAll(".skill-box, .about-card, .hero-title");
+
 window.addEventListener("scroll", () => {
     const trigger = window.innerHeight * 0.85;
+
     revealItems.forEach((item) => {
         const top = item.getBoundingClientRect().top;
         if (top < trigger) {
@@ -51,41 +49,33 @@ window.addEventListener("scroll", () => {
 });
 
 /* ------------------------------ */
-/* AUDIO TOGGLE BUTTON */
+/* AUDIO TOGGLE */
 /* ------------------------------ */
 const soundBtn = document.getElementById("toggle-sound");
+
 soundBtn.addEventListener("click", () => {
-    if (audio.muted) {
-        audio.muted = false;
-        soundBtn.textContent = "MUTE";
-        audio.play();
-    } else {
-        audio.muted = true;
-        soundBtn.textContent = "UNMUTE";
-    }
-});
-// Get elements
-const achievementBtn = document.querySelector('.cta-btn');
-const achievementPopup = document.getElementById('achievement-popup');
-const closeAchievement = document.getElementById('close-achievement');
-
-// Show popup
-achievementBtn.addEventListener('click', () => {
-    achievementPopup.style.display = 'flex';
+    audio.muted = !audio.muted;
+    soundBtn.textContent = audio.muted ? "UNMUTE" : "MUTE";
 });
 
-// Close popup
-closeAchievement.addEventListener('click', () => {
-    achievementPopup.style.display = 'none';
+/* ------------------------------ */
+/* ACHIEVEMENT POPUP */
+/* ------------------------------ */
+const achievementBtn = document.querySelector(".cta-btn");
+const achievementPopup = document.getElementById("achievement-popup");
+const closeAchievement = document.getElementById("close-achievement");
+
+achievementBtn.addEventListener("click", () => {
+    achievementPopup.classList.add("show");
 });
 
-// Close if clicking outside the content
-window.addEventListener('click', (e) => {
-    if (e.target === achievementPopup) {
-        achievementPopup.style.display = 'none';
-    }
+closeAchievement.addEventListener("click", () => {
+    achievementPopup.classList.remove("show");
 });
-// CONTACT POPUP
+
+/* ------------------------------ */
+/* CONTACT POPUP (FIXED) */
+/* ------------------------------ */
 const contactPopup = document.getElementById("contact-popup");
 const openContact = document.getElementById("open-contact");
 const closeContact = document.getElementById("close-contact");
@@ -94,13 +84,16 @@ openContact.addEventListener("click", () => {
     contactPopup.classList.add("show");
 });
 
+// Close only when clicking the X or outside content
 closeContact.addEventListener("click", () => {
     contactPopup.classList.remove("show");
 });
 
-// Close on outside click
+/* ------------------------------ */
+/* UNIVERSAL OUTSIDE CLICK HANDLER */
+/* Works for BOTH popups safely */
+/* ------------------------------ */
 window.addEventListener("click", (e) => {
-    if (e.target === contactPopup) {
-        contactPopup.classList.remove("show");
-    }
+    if (e.target === achievementPopup) achievementPopup.classList.remove("show");
+    if (e.target === contactPopup) contactPopup.classList.remove("show");
 });
